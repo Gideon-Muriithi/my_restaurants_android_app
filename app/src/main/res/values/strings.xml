@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyRestaurants</string>
+    <string name="button">Button</string>
+    <string name="todo">TODO</string>
+    <string name="my_restaurants">My Restaurants</string>
+    <string name="find_restaurants">Find Restaurants</string>
+    <string name="android_developer">Android Developer</string>
+    <string name="gideon_muriithi">Gideon Muriithi</string>
+    <string name="enter_zip_code">Enter Zip Code</string>
+    <string name="restaurants_near">Restaurants near</string>
+</resources>
