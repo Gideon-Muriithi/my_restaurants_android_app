@@ -16,7 +16,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @BindView(R.id.find_restaurant_button)  Button findRestaurantsButton;
@@ -33,22 +33,25 @@ public class MainActivity extends AppCompatActivity {
         Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/ostrich-regular.ttf");
         restaurantsTextView.setTypeface(ostrichFont);
 
-        findRestaurantsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "By Gideon", Toast.LENGTH_LONG).show();
+        findRestaurantsButton.setOnClickListener(this);
 
-                String location = locationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, profile_page.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == findRestaurantsButton) {
+            //                Toast.makeText(MainActivity.this, "By Gideon", Toast.LENGTH_LONG).show();
+
+            String location = locationEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, profile_page.class);
+            intent.putExtra("location", location);
+            startActivity(intent);
 
 //                Intent intent = new Intent();
 //                intent.setAction(Intent.ACTION_SEND);
 //                intent.putExtra(Intent.EXTRA_TEXT, "Working");
 //                intent.setType("text/plain");
 //                startActivity(intent);
-            }
-        });
+        }
     }
 }

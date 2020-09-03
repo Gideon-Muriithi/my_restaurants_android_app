@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,10 @@ import butterknife.ButterKnife;
 public class profile_page extends AppCompatActivity {
     @BindView(R.id.location_text_view)  TextView locationTextView;
     @BindView(R.id.restaurants_listView)  ListView restaurantsListView;
+    @BindView(R.id.textView)  TextView byName;
+    @BindView(R.id.textView2)  TextView developer;
+
+
     public static final String TAG = profile_page.class.getSimpleName();
 
     private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
@@ -35,6 +40,11 @@ public class profile_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
         ButterKnife.bind(this);
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/ostrich-regular.ttf");
+
+        byName.setTypeface(typeface);
+        developer.setTypeface(typeface);
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
