@@ -3,6 +3,8 @@ package com.example.myrestaurants;
 import android.os.Build;
 import android.widget.TextView;
 
+import com.example.myrestaurants.ui.MainActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 @Config(maxSdk = Build.VERSION_CODES.P)
 
 public class MainActivityTest {
-    private  MainActivity activity;
+    private MainActivity activity;
 
     @Before
     public void setup() {

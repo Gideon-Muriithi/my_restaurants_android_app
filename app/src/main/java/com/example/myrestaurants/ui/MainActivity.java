@@ -1,17 +1,20 @@
-package com.example.myrestaurants;
+package com.example.myrestaurants.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.myrestaurants.Constants;
+import com.example.myrestaurants.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,8 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.find_restaurant_button)  Button findRestaurantsButton;
     @BindView(R.id.user_input) EditText locationEditText;
     @BindView(R.id.restaurants_textView)  TextView restaurantsTextView;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,25 +39,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/ostrich-regular.ttf");
         restaurantsTextView.setTypeface(ostrichFont);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         findRestaurantsButton.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onClick(View view) {
         if(view == findRestaurantsButton) {
-            //                Toast.makeText(MainActivity.this, "By Gideon", Toast.LENGTH_LONG).show();
-
             String location = locationEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, profile_page.class);
+
+            if(!(location).equals("")) {
+                addToSharedPreferences(location);
+            }
+
+            Intent intent = new Intent(MainActivity.this, Restaurants.class);
             intent.putExtra("location", location);
             startActivity(intent);
-
-//                Intent intent = new Intent();
-//                intent.setAction(Intent.ACTION_SEND);
-//                intent.putExtra(Intent.EXTRA_TEXT, "Working");
-//                intent.setType("text/plain");
-//                startActivity(intent);
         }
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }

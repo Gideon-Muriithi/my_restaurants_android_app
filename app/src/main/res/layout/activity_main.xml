@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/unsplash"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
 
     <Button
@@ -31,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="266dp"
         android:text="@string/my_restaurants"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -56,4 +57,5 @@
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/find_restaurant_button"
         app:layout_constraintTop_toBottomOf="@+id/restaurants_textView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
