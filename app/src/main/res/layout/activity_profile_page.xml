@@ -7,50 +7,9 @@
     tools:context=".ui.Restaurants">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="87dp"
-        android:layout_marginBottom="19dp"
-        android:text="@string/by_gideon_muriithi"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="22dp"
-        android:text="@string/android_developer"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@+id/location_text_view"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:text="Android Developer" />
-
-    <TextView
-        android:id="@+id/location_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginBottom="13dp"
-        android:text="@string/restaurants_near"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <fragment
+        android:id="@+id/fragmentRestaurantList"
+        android:name="com.example.myrestaurants.ui.RestaurantListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -60,19 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location_text_view" />
-
-    <!--    <ListView-->
-    <!--        android:id="@+id/restaurants_listView"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_marginStart="16dp"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:layout_marginEnd="16dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/location_text_view" />-->
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_restaurant_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
